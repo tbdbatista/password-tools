@@ -8,7 +8,7 @@
 import UIKit
 
 class PasswordViewController: UIViewController {
-    lazy var mainView = PasswordMainView()
+    lazy var mainView = PasswordMainView(placeHolderText: "Enter new password")
     
     override func viewDidLoad() {
         super.viewDidLoad()
