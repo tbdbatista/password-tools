@@ -11,6 +11,7 @@ class PasswordMainView: UIView {
     
     lazy var lockImageView = UIImageView(image: UIImage(systemName: "lock.fill"))
     lazy var textField = UITextField()
+    lazy var eyeButton = UIButton()
     var placeHolderText: String
     
     init(placeHolderText: String) {
@@ -31,7 +32,7 @@ class PasswordMainView: UIView {
     private func setupViews(){
         self.setupSelfView()
         self.setupLockImageView()
-        self.setupMainLabel()
+        self.setupEyeButton()
         self.setupMainTextField()
     }
     
@@ -39,6 +40,7 @@ class PasswordMainView: UIView {
         self.backgroundColor = .green
         self.addSubview(lockImageView)
         self.addSubview(textField)
+        self.addSubview(eyeButton)
         self.subviews.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -49,9 +51,6 @@ class PasswordMainView: UIView {
             lockImageView.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
             lockImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
         ])
-    }
-    func setupMainLabel() {
-        
     }
     func setupMainTextField() {
         textField.isSecureTextEntry = false
@@ -64,6 +63,28 @@ class PasswordMainView: UIView {
             textField.topAnchor.constraint(equalTo: topAnchor),
             textField.leadingAnchor.constraint(equalToSystemSpacingAfter: lockImageView.trailingAnchor, multiplier: 1),
         ])
+    }
+    
+    func setupEyeButton() {
+        let eyeFilled = UIImage(systemName: "eye.fill")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        let eyeSlashFill = UIImage(systemName: "eye.slash.fill")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        eyeButton.setImage(eyeFilled, for: .normal)
+        eyeButton.setImage(eyeSlashFill, for: .selected)
+        
+        eyeButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
+        textField.rightView = eyeButton
+        textField.rightViewMode = .always
+    
+
+        NSLayoutConstraint.activate([
+            eyeButton.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
+            eyeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: textField.trailingAnchor, multiplier: 1),
+        ])
+    }
+
+    @objc func togglePasswordView() {
+        textField.isSecureTextEntry.toggle()
+        eyeButton.isSelected.toggle()
     }
 }
 
