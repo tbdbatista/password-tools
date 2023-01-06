@@ -13,6 +13,7 @@ class PasswordMainView: UIView {
     lazy var textField = UITextField()
     lazy var eyeButton = UIButton()
     lazy var separatorView = UIView()
+    lazy var errorLabel = UILabel()
     var placeHolderText: String
     
     init(placeHolderText: String) {
@@ -36,6 +37,7 @@ class PasswordMainView: UIView {
         self.setupEyeButton()
         self.setupMainTextField()
         self.setupSeparatorView()
+        self.setupErrorLabel()
     }
     
     func setupSelfView() {
@@ -44,6 +46,8 @@ class PasswordMainView: UIView {
         self.addSubview(textField)
         self.addSubview(eyeButton)
         self.addSubview(separatorView)
+        addSubview(errorLabel)
+        
         self.subviews.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -95,6 +99,19 @@ class PasswordMainView: UIView {
             separatorView.topAnchor.constraint(equalToSystemSpacingBelow: textField.bottomAnchor, multiplier: 1),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+    
+    private func setupErrorLabel() {
+        errorLabel.textColor = .systemRed
+        errorLabel.font = .preferredFont(forTextStyle: .footnote)
+        errorLabel.text = "Enter your new password"
+        errorLabel.isHidden = false
+        
+        NSLayoutConstraint.activate([
+            errorLabel.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 4),
+            errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
 
