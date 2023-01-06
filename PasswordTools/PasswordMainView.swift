@@ -12,6 +12,7 @@ class PasswordMainView: UIView {
     lazy var lockImageView = UIImageView(image: UIImage(systemName: "lock.fill"))
     lazy var textField = UITextField()
     lazy var eyeButton = UIButton()
+    lazy var separatorView = UIView()
     var placeHolderText: String
     
     init(placeHolderText: String) {
@@ -25,7 +26,7 @@ class PasswordMainView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 200, height: 200)
+        return CGSize(width: 200, height: 50)
     }
 
     //MARK: - Setup Views
@@ -34,6 +35,7 @@ class PasswordMainView: UIView {
         self.setupLockImageView()
         self.setupEyeButton()
         self.setupMainTextField()
+        self.setupSeparatorView()
     }
     
     func setupSelfView() {
@@ -41,6 +43,7 @@ class PasswordMainView: UIView {
         self.addSubview(lockImageView)
         self.addSubview(textField)
         self.addSubview(eyeButton)
+        self.addSubview(separatorView)
         self.subviews.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -51,18 +54,21 @@ class PasswordMainView: UIView {
             lockImageView.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
             lockImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
         ])
+        lockImageView.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
     }
+    
     func setupMainTextField() {
-        textField.isSecureTextEntry = false
+        textField.isSecureTextEntry = true
         textField.placeholder = placeHolderText
         textField.delegate = self
-//        textField.keyboardType = .asciiCapable
+        textField.keyboardType = .asciiCapable
         textField.attributedPlaceholder = NSAttributedString(string:placeHolderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
 
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: topAnchor),
             textField.leadingAnchor.constraint(equalToSystemSpacingAfter: lockImageView.trailingAnchor, multiplier: 1),
         ])
+        textField.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
     }
     
     func setupEyeButton() {
@@ -72,16 +78,27 @@ class PasswordMainView: UIView {
         eyeButton.setImage(eyeSlashFill, for: .selected)
         
         eyeButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
-        textField.rightView = eyeButton
-        textField.rightViewMode = .always
-    
 
         NSLayoutConstraint.activate([
             eyeButton.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
             eyeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: textField.trailingAnchor, multiplier: 1),
+            eyeButton.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+        eyeButton.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
+    }
+    
+    private func setupSeparatorView() {
+        separatorView.backgroundColor = .separator
+        
+        NSLayoutConstraint.activate([
+            separatorView.heightAnchor.constraint(equalToConstant: 1),
+            separatorView.topAnchor.constraint(equalToSystemSpacingBelow: textField.bottomAnchor, multiplier: 1),
+            separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            separatorView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 
+    //MARK: - Actions
     @objc func togglePasswordView() {
         textField.isSecureTextEntry.toggle()
         eyeButton.isSelected.toggle()
