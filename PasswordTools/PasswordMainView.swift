@@ -41,7 +41,6 @@ class PasswordMainView: UIView {
     }
     
     func setupSelfView() {
-        self.backgroundColor = .green
         self.addSubview(lockImageView)
         self.addSubview(textField)
         self.addSubview(eyeButton)

@@ -26,8 +26,9 @@ class PasswordViewController: UIViewController {
     private func setupMainView() {
         
         NSLayoutConstraint.activate([
-            mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            mainView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: mainView.trailingAnchor, multiplier: 1),
+            mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
 
