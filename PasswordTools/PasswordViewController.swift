@@ -8,27 +8,37 @@
 import UIKit
 
 class PasswordViewController: UIViewController {
+    
+    lazy var stackView = UIStackView()
     lazy var mainView = PasswordMainView(placeHolderText: "New password")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSelfView()
-        setupMainView()
+        setupComponentViews()
     }
     
     private func setupSelfView() {
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.backgroundColor = .white
-        self.view.addSubview(mainView)
+        self.view.addSubview(stackView)
+        self.stackView.addArrangedSubview(mainView)
         self.view.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
     
-    private func setupMainView() {
+    private func setupComponentViews() {
+        setupStackView()
+    }
+    
+    private func setupStackView() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 20
         
         NSLayoutConstraint.activate([
-            mainView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: mainView.trailingAnchor, multiplier: 1),
-            mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 2)
         ])
     }
 
