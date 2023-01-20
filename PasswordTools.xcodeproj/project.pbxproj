@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF611008297B3E40008FEA12 /* CriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF611007297B3E40008FEA12 /* CriteriaView.swift */; };
 		DFCDCF0C2965F1510044E127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCDCF0B2965F1510044E127 /* AppDelegate.swift */; };
 		DFCDCF102965F1510044E127 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCDCF0F2965F1510044E127 /* PasswordViewController.swift */; };
 		DFCDCF152965F1530044E127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFCDCF142965F1530044E127 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF611007297B3E40008FEA12 /* CriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteriaView.swift; sourceTree = "<group>"; };
 		DFCDCF082965F1510044E127 /* PasswordTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCDCF0B2965F1510044E127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFCDCF0F2965F1510044E127 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				DFCDCF192965F1530044E127 /* Info.plist */,
 				DFCDCF162965F1530044E127 /* LaunchScreen.storyboard */,
 				DFCDCF142965F1530044E127 /* Assets.xcassets */,
+				DF611007297B3E40008FEA12 /* CriteriaView.swift */,
 			);
 			name = MainFiles;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				DFCDCF102965F1510044E127 /* PasswordViewController.swift in Sources */,
 				DFCDCF0C2965F1510044E127 /* AppDelegate.swift in Sources */,
 				DFCDCF3D2965FE0B0044E127 /* PasswordMainView.swift in Sources */,
+				DF611008297B3E40008FEA12 /* CriteriaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
