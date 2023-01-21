@@ -56,6 +56,7 @@
 		DFCDCF0A2965F1510044E127 /* PasswordTools */ = {
 			isa = PBXGroup;
 			children = (
+				DF611007297B3E40008FEA12 /* CriteriaView.swift */,
 				DFCDCF3B2965F2610044E127 /* MainFiles */,
 				DFCDCF0B2965F1510044E127 /* AppDelegate.swift */,
 				DFCDCF0F2965F1510044E127 /* PasswordViewController.swift */,
@@ -70,7 +71,6 @@
 				DFCDCF192965F1530044E127 /* Info.plist */,
 				DFCDCF162965F1530044E127 /* LaunchScreen.storyboard */,
 				DFCDCF142965F1530044E127 /* Assets.xcassets */,
-				DF611007297B3E40008FEA12 /* CriteriaView.swift */,
 			);
 			name = MainFiles;
 			sourceTree = "<group>";

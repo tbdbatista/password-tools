@@ -11,6 +11,7 @@ class PasswordViewController: UIViewController {
     
     lazy var stackView = UIStackView()
     lazy var mainView = PasswordMainView(placeHolderText: "New password")
+    lazy var criteriaView = CriteriaView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class PasswordViewController: UIViewController {
         self.view.backgroundColor = .white
         self.view.addSubview(stackView)
         self.stackView.addArrangedSubview(mainView)
+        self.stackView.addArrangedSubview(criteriaView)
         self.view.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
     
