@@ -15,6 +15,7 @@ class CriteriaView: UIView {
     lazy var singleCriteriaView1 = SingleCriteriaView()
     lazy var singleCriteriaView2 = SingleCriteriaView()
     lazy var singleCriteriaView3 = SingleCriteriaView()
+    lazy var singleCriteriaView4 = SingleCriteriaView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +29,7 @@ class CriteriaView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 200, height: 500)
+        return CGSize(width: 200, height: 400)
     }
     
     //MARK: - View Setup
@@ -37,6 +38,7 @@ class CriteriaView: UIView {
         stackView.addArrangedSubview(singleCriteriaView1)
         stackView.addArrangedSubview(singleCriteriaView2)
         stackView.addArrangedSubview(singleCriteriaView3)
+        stackView.addArrangedSubview(singleCriteriaView4)
         
         translatesAutoresizingMaskIntoConstraints = false
         self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
@@ -48,66 +50,14 @@ class CriteriaView: UIView {
     
     private func setupStackView() {
         stackView.axis = .vertical
-        stackView.spacing = 20
+        stackView.spacing = 1
         stackView.alignment = .center
-        stackView.distribution = .equalSpacing
         stackView.backgroundColor = .green
         
         NSLayoutConstraint.activate([
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
-    }
-}
-
-
-class SingleCriteriaView: UIView {
-   
-    let stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .center
-        stack.distribution = .fill
-        stack.spacing = 10
-        stack.backgroundColor = .cyan
-        return stack
-    }()
-   
-    let imageView: UIImageView = {
-        let imgView = UIImageView()
-        imgView.image = UIImage(systemName: "circle")
-        imgView.contentMode = .scaleAspectFit
-        return imgView
-    }()
-   
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.numberOfLines = 0
-        label.text = "O que será que será?"
-        return label
-    }()
-   
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-    }
-   
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-   
-    private func setupView() {
-        addSubview(stackView)
-        stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(textLabel)
-        
-        self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        
-//        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
-//        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-//        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-//        stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
     }
 }
 
