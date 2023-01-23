@@ -28,9 +28,9 @@ class CriteriaView: UIView {
         fatalError("Required - implement init(coder: - class LoginView)")
     }
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: 200, height: 400)
-    }
+//    override var intrinsicContentSize: CGSize {
+//        return CGSize(width: 200, height: 100)
+//    }
     
     //MARK: - View Setup
     private func setupSelfView() {

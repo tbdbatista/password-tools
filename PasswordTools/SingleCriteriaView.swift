@@ -11,9 +11,7 @@ class SingleCriteriaView: UIView {
    
     let stackView: UIStackView = {
         let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .center
-        stack.spacing = 10
+        stack.spacing = 8
         stack.backgroundColor = .cyan
         return stack
     }()
@@ -36,6 +34,7 @@ class SingleCriteriaView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        setupComponentsView()
     }
    
     required init?(coder: NSCoder) {
@@ -53,6 +52,19 @@ class SingleCriteriaView: UIView {
         
         self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
+    }
+    
+    private func setupComponentsView() {
+        setupStackView()
+    }
+    
+    private func setupStackView() {
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 }
 
