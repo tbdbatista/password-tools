@@ -43,6 +43,7 @@ class SingleCriteriaView: UIView {
 
     private func setupStackView() {
         stackView.spacing = 8
+        stackView.distribution = .fill
         stackView.backgroundColor = .white
 
         NSLayoutConstraint.activate([
@@ -55,8 +56,10 @@ class SingleCriteriaView: UIView {
 
     private func setupImageView() {
         imageView.image = UIImage(systemName: "circle")!.withTintColor(.tertiaryLabel, renderingMode: .alwaysOriginal)
-        imageView.contentMode = .scaleAspectFit
-
+        NSLayoutConstraint.activate([
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
+        ])
+        imageView.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
     }
 
     private func setupTextLabel() {
@@ -64,5 +67,7 @@ class SingleCriteriaView: UIView {
         textLabel.textColor = .secondaryLabel
         textLabel.font = .preferredFont(forTextStyle: .subheadline)
         textLabel.text = "O que será que será?"
+
+        textLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
     }
 }
