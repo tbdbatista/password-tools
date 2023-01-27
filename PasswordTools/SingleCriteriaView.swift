@@ -9,27 +9,9 @@ import UIKit
 
 class SingleCriteriaView: UIView {
 
-    let stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.spacing = 8
-        stack.backgroundColor = .cyan
-        return stack
-    }()
-
-    let imageView: UIImageView = {
-        let imgView = UIImageView()
-        imgView.image = UIImage(systemName: "circle")
-        imgView.contentMode = .scaleAspectFit
-        return imgView
-    }()
-
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.numberOfLines = 0
-        label.text = "O que será que será?"
-        return label
-    }()
+    lazy var stackView = UIStackView()
+    lazy var imageView = UIImageView()
+    lazy var textLabel = UILabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,21 +31,38 @@ class SingleCriteriaView: UIView {
         addSubview(stackView)
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(textLabel)
-
         self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-
+        stackView.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 
     private func setupComponentsView() {
         setupStackView()
+        setupImageView()
+        setupTextLabel()
     }
 
     private func setupStackView() {
+        stackView.spacing = 8
+        stackView.backgroundColor = .white
+
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+
+    private func setupImageView() {
+        imageView.image = UIImage(systemName: "circle")!.withTintColor(.tertiaryLabel, renderingMode: .alwaysOriginal)
+        imageView.contentMode = .scaleAspectFit
+
+    }
+
+    private func setupTextLabel() {
+        textLabel.textAlignment = .left
+        textLabel.textColor = .secondaryLabel
+        textLabel.font = .preferredFont(forTextStyle: .subheadline)
+        textLabel.text = "O que será que será?"
     }
 }
