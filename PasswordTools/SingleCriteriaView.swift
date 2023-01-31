@@ -13,8 +13,23 @@ class SingleCriteriaView: UIView {
     lazy var imageView = UIImageView()
     lazy var textLabel = UILabel()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    let checkmarkImage = UIImage(systemName: "checkmark.circle")!.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+    let xMarkImage = UIImage(systemName: "xmark.circle")!.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+    let circleImage = UIImage(systemName: "circle")!.withTintColor(.tertiaryLabel, renderingMode: .alwaysOriginal)
+
+    var metCriteria: Bool = false {
+        didSet {
+            if metCriteria {
+                imageView.image = checkmarkImage
+            } else {
+                imageView.image = xMarkImage
+            }
+        }
+    }
+
+    init(text: String) {
+        super.init(frame: .zero)
+        textLabel.text = text
         setupView()
         setupComponentsView()
     }
@@ -69,5 +84,11 @@ class SingleCriteriaView: UIView {
         textLabel.text = "O que será que será?"
 
         textLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
+    }
+
+    // MARK: - Methods
+    private func resetCriteria() {
+        metCriteria = false
+        imageView.image = circleImage
     }
 }

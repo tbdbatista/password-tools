@@ -12,10 +12,10 @@ import UIKit
 class CriteriaView: UIView {
 
     lazy var stackView = UIStackView()
-    lazy var singleCriteriaView1 = SingleCriteriaView()
-    lazy var singleCriteriaView2 = SingleCriteriaView()
-    lazy var singleCriteriaView3 = SingleCriteriaView()
-    lazy var singleCriteriaView4 = SingleCriteriaView()
+    lazy var singleCriteriaView1 = SingleCriteriaView(text: "uppercase letter(A-Z)")
+    lazy var singleCriteriaView2 = SingleCriteriaView(text: "What Im doing?")
+    lazy var singleCriteriaView3 = SingleCriteriaView(text: "Is this the real life")
+    lazy var singleCriteriaView4 = SingleCriteriaView(text: "It is just fantasy")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
