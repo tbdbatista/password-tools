@@ -70,7 +70,7 @@ class SingleCriteriaView: UIView {
     }
 
     private func setupImageView() {
-        imageView.image = UIImage(systemName: "circle")!.withTintColor(.tertiaryLabel, renderingMode: .alwaysOriginal)
+        imageView.image = xMarkImage
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
         ])
@@ -81,8 +81,6 @@ class SingleCriteriaView: UIView {
         textLabel.textAlignment = .left
         textLabel.textColor = .secondaryLabel
         textLabel.font = .preferredFont(forTextStyle: .subheadline)
-        textLabel.text = "O que será que será?"
-
         textLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
     }
 
