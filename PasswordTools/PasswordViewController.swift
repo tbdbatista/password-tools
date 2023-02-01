@@ -30,6 +30,7 @@ class PasswordViewController: UIViewController {
 
     private func setupComponentViews() {
         setupStackView()
+        setupCriteriaView()
     }
 
     private func setupStackView() {
@@ -44,4 +45,7 @@ class PasswordViewController: UIViewController {
         ])
     }
 
+    private func setupCriteriaView() {
+        criteriaView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    }
 }

@@ -11,17 +11,19 @@ import UIKit
 
 class CriteriaView: UIView {
 
-    lazy var contentStackView = UIView()
     lazy var stackView = UIStackView()
-    lazy var singleCriteriaView1 = SingleCriteriaView(text: "Uppercase letter(A-Z)")
-    lazy var singleCriteriaView2 = SingleCriteriaView(text: "What am I doing?")
-    lazy var singleCriteriaView3 = SingleCriteriaView(text: "Is this the real life?")
-    lazy var singleCriteriaView4 = SingleCriteriaView(text: "Is it just fantasy?")
+    lazy var lengthCriteriaView = SingleCriteriaView(text: "8-32 characters (no spaces)")
+    lazy var uppercaseCriteriaView = SingleCriteriaView(text: "uppercase letter (A-Z)")
+    lazy var lowerCaseCriteriaView = SingleCriteriaView(text: "lowercase (a-z)")
+    lazy var digitCriteriaView = SingleCriteriaView(text: "digit (0-9)")
+    lazy var specialCharacterCriteriaView = SingleCriteriaView(text: "special character (e.g. !@#$%^)")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSelfView()
         setupComponentViews()
+        self.backgroundColor = .gray
+        stackView.backgroundColor = .lightGray
     }
 
     required init?(coder: NSCoder) {
@@ -30,16 +32,15 @@ class CriteriaView: UIView {
 
     // MARK: - View Setup
     private func setupSelfView() {
-        self.addSubview(contentStackView)
-        contentStackView.addSubview(stackView)
-        stackView.addArrangedSubview(singleCriteriaView1)
-        stackView.addArrangedSubview(singleCriteriaView2)
-        stackView.addArrangedSubview(singleCriteriaView3)
-        stackView.addArrangedSubview(singleCriteriaView4)
+        self.addSubview(stackView)
+        stackView.addArrangedSubview(lengthCriteriaView)
+        stackView.addArrangedSubview(uppercaseCriteriaView)
+        stackView.addArrangedSubview(lowerCaseCriteriaView)
+        stackView.addArrangedSubview(digitCriteriaView)
+        stackView.addArrangedSubview(specialCharacterCriteriaView)
 
         translatesAutoresizingMaskIntoConstraints = false
         self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        contentStackView.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 
     private func setupComponentViews() {
@@ -47,20 +48,15 @@ class CriteriaView: UIView {
     }
 
     private func setupStackView() {
-        contentStackView.backgroundColor = .secondarySystemBackground
 
         stackView.axis = .vertical
-        stackView.spacing = 5
-        stackView.alignment = .leading
+        stackView.distribution = .equalCentering
 
         NSLayoutConstraint.activate([
-            contentStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            contentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-        ])
-
-        NSLayoutConstraint.activate([
-            stackView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor, constant: -16),
-            stackView.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor, constant: 16)
+            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
     }
 }
