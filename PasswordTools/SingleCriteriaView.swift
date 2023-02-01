@@ -59,7 +59,6 @@ class SingleCriteriaView: UIView {
     private func setupStackView() {
         stackView.spacing = 8
         stackView.distribution = .fill
-        stackView.backgroundColor = .white
 
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),

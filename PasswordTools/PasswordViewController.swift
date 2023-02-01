@@ -40,12 +40,14 @@ class PasswordViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 2)
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1)
         ])
     }
 
     private func setupCriteriaView() {
+        criteriaView.layer.cornerRadius = 4
+        criteriaView.backgroundColor = .tertiarySystemFill
         criteriaView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
 }

@@ -13,6 +13,7 @@ class CriteriaView: UIView {
 
     lazy var stackView = UIStackView()
     lazy var lengthCriteriaView = SingleCriteriaView(text: "8-32 characters (no spaces)")
+    lazy var criteriaLabel = UILabel()
     lazy var uppercaseCriteriaView = SingleCriteriaView(text: "uppercase letter (A-Z)")
     lazy var lowerCaseCriteriaView = SingleCriteriaView(text: "lowercase (a-z)")
     lazy var digitCriteriaView = SingleCriteriaView(text: "digit (0-9)")
@@ -22,8 +23,6 @@ class CriteriaView: UIView {
         super.init(frame: frame)
         setupSelfView()
         setupComponentViews()
-        self.backgroundColor = .gray
-        stackView.backgroundColor = .lightGray
     }
 
     required init?(coder: NSCoder) {
@@ -34,6 +33,7 @@ class CriteriaView: UIView {
     private func setupSelfView() {
         self.addSubview(stackView)
         stackView.addArrangedSubview(lengthCriteriaView)
+        stackView.addArrangedSubview(criteriaLabel)
         stackView.addArrangedSubview(uppercaseCriteriaView)
         stackView.addArrangedSubview(lowerCaseCriteriaView)
         stackView.addArrangedSubview(digitCriteriaView)
@@ -45,12 +45,14 @@ class CriteriaView: UIView {
 
     private func setupComponentViews() {
         setupStackView()
+        setupCriteriaLabel()
     }
 
     private func setupStackView() {
 
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
+        stackView.spacing = 6
 
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
@@ -59,4 +61,25 @@ class CriteriaView: UIView {
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
     }
-}
+
+    private func setupCriteriaLabel() {
+        criteriaLabel.numberOfLines = 0
+        criteriaLabel.lineBreakMode = .byWordWrapping
+        criteriaLabel.attributedText = makeCriteriaMessage()
+    }
+
+    private func makeCriteriaMessage() -> NSAttributedString {
+        var plainTextAttributes = [NSAttributedString.Key: AnyObject]()
+        plainTextAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
+        plainTextAttributes[.foregroundColor] = UIColor.secondaryLabel
+
+        var boldTextAttributes = [NSAttributedString.Key: AnyObject]()
+        boldTextAttributes[.foregroundColor] = UIColor.label
+        boldTextAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
+
+        let attrText = NSMutableAttributedString(string: "Use at least ", attributes: plainTextAttributes)
+        attrText.append(NSAttributedString(string: "3 of these 4 ", attributes: boldTextAttributes))
+        attrText.append(NSAttributedString(string: "criteria when setting your password:", attributes: plainTextAttributes))
+
+        return attrText
+    }}
