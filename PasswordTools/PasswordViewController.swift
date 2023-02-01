@@ -10,8 +10,9 @@ import UIKit
 class PasswordViewController: UIViewController {
 
     lazy var stackView = UIStackView()
-    lazy var mainView = PasswordMainView(placeHolderText: "New password")
+    lazy var passwordView = PasswordMainView(placeHolderText: "New password")
     lazy var criteriaView = CriteriaView()
+    lazy var secondaryPasswordView = PasswordMainView(placeHolderText: "Re-enter new password")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,9 @@ class PasswordViewController: UIViewController {
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.backgroundColor = .white
         self.view.addSubview(stackView)
-        self.stackView.addArrangedSubview(mainView)
+        self.stackView.addArrangedSubview(passwordView)
         self.stackView.addArrangedSubview(criteriaView)
+        self.stackView.addArrangedSubview(secondaryPasswordView)
         self.view.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 
