@@ -13,6 +13,7 @@ class PasswordViewController: UIViewController {
     lazy var passwordView = PasswordMainView(placeHolderText: "New password")
     lazy var criteriaView = CriteriaView()
     lazy var secondaryPasswordView = PasswordMainView(placeHolderText: "Re-enter new password")
+    lazy var resetButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,14 @@ class PasswordViewController: UIViewController {
         self.stackView.addArrangedSubview(passwordView)
         self.stackView.addArrangedSubview(criteriaView)
         self.stackView.addArrangedSubview(secondaryPasswordView)
+        self.stackView.addArrangedSubview(resetButton)
         self.view.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 
     private func setupComponentViews() {
         setupStackView()
         setupCriteriaView()
+        setupResetButton()
     }
 
     private func setupStackView() {
@@ -51,5 +54,10 @@ class PasswordViewController: UIViewController {
         criteriaView.layer.cornerRadius = 4
         criteriaView.backgroundColor = .tertiarySystemFill
         criteriaView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    }
+
+    private func setupResetButton() {
+        resetButton.setTitle("Reset password", for: [])
+        resetButton.configuration = .filled()
     }
 }
