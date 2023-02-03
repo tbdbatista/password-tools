@@ -15,12 +15,16 @@ class PasswordViewController: UIViewController {
     lazy var secondaryPasswordView = PasswordMainView(placeHolderText: "Re-enter new password")
     lazy var resetButton = UIButton()
 
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSelfView()
         setupComponentViews()
+        passwordView.textField.delegate = self
+        secondaryPasswordView.textField.delegate = self
     }
 
+    // MARK: - Setup Components
     private func setupSelfView() {
         self.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.backgroundColor = .white
@@ -59,5 +63,40 @@ class PasswordViewController: UIViewController {
     private func setupResetButton() {
         resetButton.setTitle("Reset password", for: [])
         resetButton.configuration = .filled()
+        resetButton.addTarget(self, action: #selector(didTapConfirmPassword), for: .touchUpInside)
+    }
+
+    // MARK: - Actions
+    @objc
+    private func didTapConfirmPassword() {
+        confirmReenteredPassword()
+        textFieldResignFirstResponder()
+    }
+
+    // MARK: - Methods
+    private func confirmReenteredPassword() {
+        guard let firstPassword = passwordView.textField.text,
+              passwordView.textField.text != "",
+              let secondPassword = secondaryPasswordView.textField.text,
+              secondaryPasswordView.textField.text != "" else {
+                  print("senhas não podem ser nulas")
+                  return }
+        if  firstPassword == secondPassword {
+            print("senhas iguais")
+        } else {
+            print("senhas diferentes")
+        }
+    }
+
+    private func textFieldResignFirstResponder() {
+        passwordView.textField.resignFirstResponder()
+        secondaryPasswordView.textField.resignFirstResponder()
+    }
+}
+
+// MARK: - Extension - UITextFieldDelegate
+extension PasswordViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print(textField.text)
     }
 }

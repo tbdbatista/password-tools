@@ -63,7 +63,6 @@ class PasswordMainView: UIView {
     func setupMainTextField() {
         textField.isSecureTextEntry = true
         textField.placeholder = placeHolderText
-        textField.delegate = self
         textField.keyboardType = .asciiCapable
         textField.attributedPlaceholder = NSAttributedString(
             string: placeHolderText,
@@ -118,13 +117,8 @@ class PasswordMainView: UIView {
     }
 
     // MARK: - Actions
-    @objc func togglePasswordView() {
+    @objc private func togglePasswordView() {
         textField.isSecureTextEntry.toggle()
         eyeButton.isSelected.toggle()
     }
-}
-
-// MARK: - Extension - UITextFieldDelegate
-extension PasswordMainView: UITextFieldDelegate {
-
 }
