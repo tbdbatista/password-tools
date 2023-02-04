@@ -107,7 +107,7 @@ class PasswordMainView: UIView {
         errorLabel.textColor = .systemRed
         errorLabel.font = .preferredFont(forTextStyle: .footnote)
         errorLabel.text = "Enter your new password"
-        errorLabel.isHidden = false
+        errorLabel.isHidden = true
 
         NSLayoutConstraint.activate([
             errorLabel.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 4),

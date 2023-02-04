@@ -18,6 +18,7 @@ class PasswordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupActions()
         passwordView.passwordView.textField.delegate = self
         passwordView.secondaryPasswordView.textField.delegate = self
     }
@@ -25,6 +26,7 @@ class PasswordViewController: UIViewController {
     // MARK: - Setup Actions
     private func setupActions() {
         passwordView.resetButton.addTarget(self, action: #selector(didTapConfirmPassword), for: .touchUpInside)
+        passwordView.passwordView.textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
 
     // MARK: - Actions
@@ -32,6 +34,11 @@ class PasswordViewController: UIViewController {
     private func didTapConfirmPassword() {
         confirmReenteredPassword()
         textFieldResignFirstResponder()
+    }
+
+    @objc
+    private func textFieldEditingChanged() {
+        print(passwordView.passwordView.textField.text)
     }
 
     // MARK: - Methods
@@ -58,6 +65,6 @@ class PasswordViewController: UIViewController {
 // MARK: - Extension - UITextFieldDelegate
 extension PasswordViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print(textField.text)
+
     }
 }

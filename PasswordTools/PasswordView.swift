@@ -64,6 +64,5 @@ class PasswordView: UIView {
     private func setupResetButton() {
         resetButton.setTitle("Reset password", for: [])
         resetButton.configuration = .filled()
-//        resetButton.addTarget(self, action: #selector(didTapConfirmPassword), for: .touchUpInside)
     }
 }
