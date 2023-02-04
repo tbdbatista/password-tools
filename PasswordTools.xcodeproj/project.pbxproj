@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF4806AA298EFB0900CA0427 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4806A9298EFB0900CA0427 /* PasswordView.swift */; };
 		DF5669EB297C9BFA004EF5DC /* SingleCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5669EA297C9BFA004EF5DC /* SingleCriteriaView.swift */; };
 		DF611008297B3E40008FEA12 /* CriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF611007297B3E40008FEA12 /* CriteriaView.swift */; };
 		DFCDCF0C2965F1510044E127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCDCF0B2965F1510044E127 /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF4806A9298EFB0900CA0427 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		DF5669EA297C9BFA004EF5DC /* SingleCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCriteriaView.swift; sourceTree = "<group>"; };
 		DF611007297B3E40008FEA12 /* CriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteriaView.swift; sourceTree = "<group>"; };
 		DFCDCF082965F1510044E127 /* PasswordTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				DFCDCF192965F1530044E127 /* Info.plist */,
 				DFCDCF162965F1530044E127 /* LaunchScreen.storyboard */,
 				DFCDCF142965F1530044E127 /* Assets.xcassets */,
+				DF4806A9298EFB0900CA0427 /* PasswordView.swift */,
 			);
 			name = MainFiles;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFCDCF102965F1510044E127 /* PasswordViewController.swift in Sources */,
+				DF4806AA298EFB0900CA0427 /* PasswordView.swift in Sources */,
 				DFCDCF0C2965F1510044E127 /* AppDelegate.swift in Sources */,
 				DF5669EB297C9BFA004EF5DC /* SingleCriteriaView.swift in Sources */,
 				DFCDCF3D2965FE0B0044E127 /* PasswordMainView.swift in Sources */,
