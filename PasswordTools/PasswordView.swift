@@ -67,13 +67,13 @@ class PasswordView: UIView {
         resetButton.setTitle("Reset password", for: [])
         resetButton.configuration = .filled()
     }
-    
+
     // MARK: - Setup Actions
     private func setupActions() {
         resetButton.addTarget(self, action: #selector(didTapConfirmPassword), for: .touchUpInside)
         passwordView.textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
-    
+
     // MARK: - Actions
     @objc
     private func didTapConfirmPassword() {
@@ -85,13 +85,13 @@ class PasswordView: UIView {
     private func textFieldEditingChanged() {
         print(passwordView.textField.text)
     }
-    
+
     // MARK: - Methods
     private func textFieldResignFirstResponder() {
         passwordView.textField.resignFirstResponder()
         secondaryPasswordView.textField.resignFirstResponder()
     }
-    
+
     private func confirmReenteredPassword() {
         guard let firstPassword = passwordView.textField.text,
               passwordView.textField.text != "",
@@ -106,7 +106,6 @@ class PasswordView: UIView {
         }
     }
 }
-
 
 // MARK: - Extension - UITextFieldDelegate
 extension PasswordView: UITextFieldDelegate {

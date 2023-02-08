@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF0268D1299401C80083F6CD /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0268D0299401C80083F6CD /* PasswordViewModel.swift */; };
 		DF4806AA298EFB0900CA0427 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4806A9298EFB0900CA0427 /* PasswordView.swift */; };
 		DF5669EB297C9BFA004EF5DC /* SingleCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5669EA297C9BFA004EF5DC /* SingleCriteriaView.swift */; };
 		DF611008297B3E40008FEA12 /* CriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF611007297B3E40008FEA12 /* CriteriaView.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF0268D0299401C80083F6CD /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		DF4806A9298EFB0900CA0427 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		DF5669EA297C9BFA004EF5DC /* SingleCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCriteriaView.swift; sourceTree = "<group>"; };
 		DF611007297B3E40008FEA12 /* CriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteriaView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				DFCDCF192965F1530044E127 /* Info.plist */,
 				DFCDCF162965F1530044E127 /* LaunchScreen.storyboard */,
 				DFCDCF142965F1530044E127 /* Assets.xcassets */,
+				DF0268D0299401C80083F6CD /* PasswordViewModel.swift */,
 			);
 			name = MainFiles;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFCDCF102965F1510044E127 /* PasswordViewController.swift in Sources */,
+				DF0268D1299401C80083F6CD /* PasswordViewModel.swift in Sources */,
 				DF4806AA298EFB0900CA0427 /* PasswordView.swift in Sources */,
 				DFCDCF0C2965F1510044E127 /* AppDelegate.swift in Sources */,
 				DF5669EB297C9BFA004EF5DC /* SingleCriteriaView.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 class PasswordViewController: UIViewController {
 
     let passwordView = PasswordView(frame: .zero)
+    let viewModel = PasswordViewModel()
 
     // MARK: - ViewController Lifecycle
     override func loadView() {
@@ -20,4 +21,3 @@ class PasswordViewController: UIViewController {
         super.viewDidLoad()
     }
 }
-
