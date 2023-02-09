@@ -68,7 +68,7 @@ class PasswordView: UIView {
     private func setupCriteriaView() {
         criteriaView.layer.cornerRadius = 4
         criteriaView.backgroundColor = .tertiarySystemFill
-        criteriaView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        criteriaView.heightAnchor.constraint(equalToConstant: 220).isActive = true
     }
 
     private func setupResetButton() {
@@ -101,21 +101,25 @@ class PasswordView: UIView {
     }
 
     private func confirmReenteredPassword() {
-        guard let firstPassword = passwordView.textField.text,
-              passwordView.textField.text != "",
-              let secondPassword = secondaryPasswordView.textField.text,
-              secondaryPasswordView.textField.text != "" else {
-                  print("senhas não podem ser nulas")
-                  return }
-        if  firstPassword == secondPassword {
-            print("senhas iguais")
+        if /*criteriaMatch*/ true {
+            if  passwordView.textField.text == secondaryPasswordView.textField.text {
+                print("senhas iguais")
+            } else {
+                secondaryPasswordView.errorLabel.isHidden = false
+                updateErrorLabel(string: "Reentered password didn't match")
+            }
         } else {
-            print("senhas diferentes")
+            secondaryPasswordView.errorLabel.isHidden = false
+            updateErrorLabel(string: "Password didn't match all criteria")
         }
     }
 
     func getPassword() -> String {
         passwordView.textField.text ?? ""
+    }
+
+    func updateErrorLabel(string: String) {
+        secondaryPasswordView.errorLabel.text = string
     }
 }
 
@@ -123,5 +127,9 @@ class PasswordView: UIView {
 extension PasswordView: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         delegate?.editingEnded()
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        secondaryPasswordView.errorLabel.isHidden = true
     }
 }

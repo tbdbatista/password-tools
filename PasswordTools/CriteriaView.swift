@@ -12,8 +12,8 @@ import UIKit
 class CriteriaView: UIView {
 
     lazy var stackView = UIStackView()
-    lazy var lengthCriteriaView = SingleCriteriaView(text: "8-32 characters long")
     lazy var criteriaLabel = UILabel()
+    lazy var lengthCriteriaView = SingleCriteriaView(text: "8-32 characters long")
     lazy var uppercaseCriteriaView = SingleCriteriaView(text: "uppercase letter (A-Z)")
     lazy var lowerCaseCriteriaView = SingleCriteriaView(text: "lowercase (a-z)")
     lazy var digitCriteriaView = SingleCriteriaView(text: "digit (0-9)")
@@ -32,8 +32,8 @@ class CriteriaView: UIView {
     // MARK: - View Setup
     private func setupSelfView() {
         self.addSubview(stackView)
-        stackView.addArrangedSubview(lengthCriteriaView)
         stackView.addArrangedSubview(criteriaLabel)
+        stackView.addArrangedSubview(lengthCriteriaView)
         stackView.addArrangedSubview(uppercaseCriteriaView)
         stackView.addArrangedSubview(lowerCaseCriteriaView)
         stackView.addArrangedSubview(digitCriteriaView)
@@ -77,12 +77,13 @@ class CriteriaView: UIView {
         boldTextAttributes[.foregroundColor] = UIColor.label
         boldTextAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
 
-        let attrText = NSMutableAttributedString(string: "Use at least ", attributes: plainTextAttributes)
-        attrText.append(NSAttributedString(string: "3 of these 4 ", attributes: boldTextAttributes))
-        attrText.append(NSAttributedString(
-            string: "criteria when setting your password:",
+        let attributedText = NSMutableAttributedString(
+            attributedString: NSMutableAttributedString(string: "", attributes: plainTextAttributes))
+        attributedText.append(NSAttributedString(string: "Use all criteria below ", attributes: boldTextAttributes))
+        attributedText.append(NSAttributedString(
+            string: "to set new password:",
             attributes: plainTextAttributes)
         )
 
-        return attrText
+        return attributedText
     }}
