@@ -20,15 +20,12 @@ class PasswordViewModel {
     func lowercaseCriteriaMet(password: String) -> Bool {
         password.uppercased() != password
     }
+
     func oneDigitCriteriaMet(password: String) -> Bool {
-        var holder = false
-        let range = 0...9
-        password.forEach { char in
-            guard let number = char.wholeNumberValue else {return}
-            if range.contains(number) {
-                holder = true
-            }
-        }
-        return holder
+        password.range(of: ".*[0-9].*", options: .regularExpression) != nil
+    }
+
+    func specialCharacter(password: String) -> Bool {
+        password.range(of: ".*[^A-Za-z0-9].*", options: .regularExpression) != nil
     }
 }

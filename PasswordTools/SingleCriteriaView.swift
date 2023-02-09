@@ -13,7 +13,8 @@ class SingleCriteriaView: UIView {
     lazy var imageView = UIImageView()
     lazy var textLabel = UILabel()
 
-    let checkmarkImage = UIImage(systemName: "checkmark.circle")!.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+    let checkmarkImage = UIImage(systemName: "checkmark.circle")!
+        .withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
     let xMarkImage = UIImage(systemName: "xmark.circle")!.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
     let circleImage = UIImage(systemName: "circle")!.withTintColor(.tertiaryLabel, renderingMode: .alwaysOriginal)
 
@@ -84,7 +85,7 @@ class SingleCriteriaView: UIView {
     }
 
     // MARK: - Methods
-    private func resetCriteria() {
+    func resetCriteria() {
         metCriteria = false
         imageView.image = circleImage
     }

@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol PasswordViewProtocol {
+    func editingChanged()
+    func editingEnded()
+}
+
 class PasswordView: UIView {
 
     lazy var stackView = UIStackView()
@@ -14,6 +19,8 @@ class PasswordView: UIView {
     lazy var criteriaView = CriteriaView()
     lazy var secondaryPasswordView = PasswordMainView(placeHolderText: "Re-enter new password")
     lazy var resetButton = UIButton()
+
+    var delegate: PasswordViewProtocol?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +48,7 @@ class PasswordView: UIView {
         setupStackView()
         setupCriteriaView()
         setupResetButton()
+        setupActions()
         passwordView.textField.delegate = self
         secondaryPasswordView.textField.delegate = self
     }
@@ -83,7 +91,7 @@ class PasswordView: UIView {
 
     @objc
     private func textFieldEditingChanged() {
-        print(passwordView.textField.text)
+        delegate?.editingChanged()
     }
 
     // MARK: - Methods
@@ -105,11 +113,15 @@ class PasswordView: UIView {
             print("senhas diferentes")
         }
     }
+
+    func getPassword() -> String {
+        passwordView.textField.text ?? ""
+    }
 }
 
 // MARK: - Extension - UITextFieldDelegate
 extension PasswordView: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-
+        delegate?.editingEnded()
     }
 }

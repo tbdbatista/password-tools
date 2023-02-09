@@ -12,7 +12,7 @@ import UIKit
 class CriteriaView: UIView {
 
     lazy var stackView = UIStackView()
-    lazy var lengthCriteriaView = SingleCriteriaView(text: "8-32 characters (no spaces)")
+    lazy var lengthCriteriaView = SingleCriteriaView(text: "8-32 characters long")
     lazy var criteriaLabel = UILabel()
     lazy var uppercaseCriteriaView = SingleCriteriaView(text: "uppercase letter (A-Z)")
     lazy var lowerCaseCriteriaView = SingleCriteriaView(text: "lowercase (a-z)")
@@ -79,7 +79,10 @@ class CriteriaView: UIView {
 
         let attrText = NSMutableAttributedString(string: "Use at least ", attributes: plainTextAttributes)
         attrText.append(NSAttributedString(string: "3 of these 4 ", attributes: boldTextAttributes))
-        attrText.append(NSAttributedString(string: "criteria when setting your password:", attributes: plainTextAttributes))
+        attrText.append(NSAttributedString(
+            string: "criteria when setting your password:",
+            attributes: plainTextAttributes)
+        )
 
         return attrText
     }}
