@@ -26,6 +26,18 @@ class PasswordViewModel {
     }
 
     func specialCharacter(password: String) -> Bool {
-        password.range(of: ".*[^A-Za-z0-9].*", options: .regularExpression) != nil
+        if !checkValidSpecialCharacter(password: password) {
+            return false
+        }
+        return (password.range(of: ".*[^A-Za-z0-9].*", options: .regularExpression) != nil)
+    }
+
+    func checkValidSpecialCharacter(password: String) -> Bool {
+        let validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,@:?!()$\\/#^~*&-+<>{}[] "
+        let invalidSet = CharacterSet(charactersIn: validChars).inverted
+        if password.rangeOfCharacter(from: invalidSet) != nil {
+            return false
+        }
+        return true
     }
 }

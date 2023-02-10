@@ -104,6 +104,7 @@ class PasswordMainView: UIView {
     }
 
     private func setupErrorLabel() {
+        errorLabel.numberOfLines = 0
         errorLabel.textColor = .systemRed
         errorLabel.font = .preferredFont(forTextStyle: .footnote)
         errorLabel.isHidden = true

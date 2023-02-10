@@ -103,5 +103,18 @@ extension PasswordViewController: PasswordViewProtocol {
 
     func editingChanged() {
         checkAllCriteria()
+        if !viewModel.checkValidSpecialCharacter(password: passwordView.getPassword()) {
+            passwordView.updateErrorLabel(
+                string: "Please, for special character use space or one of the following: .,@:?!()$\\/#^~*&-+<>{}[]",
+                label: passwordView.passwordView.errorLabel
+            )
+            passwordView.passwordView.errorLabel.isHidden = false
+        } else {
+            passwordView.updateErrorLabel(
+                string: "",
+                label: passwordView.passwordView.errorLabel
+            )
+            passwordView.passwordView.errorLabel.isHidden = true
+        }
     }
 }
