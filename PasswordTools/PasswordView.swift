@@ -115,11 +115,11 @@ class PasswordView: UIView {
                 delegate?.success()
             } else {
                 secondaryPasswordView.errorLabel.isHidden = false
-                updateErrorLabel(string: "Reentered password didn't match")
+                updateErrorLabel(string: "Passwords do not match", label: secondaryPasswordView.errorLabel)
             }
         } else {
-            secondaryPasswordView.errorLabel.isHidden = false
-            updateErrorLabel(string: "Password didn't match all criteria")
+            passwordView.errorLabel.isHidden = false
+            updateErrorLabel(string: "Password does not match all criteria", label: passwordView.errorLabel)
         }
     }
 
@@ -132,8 +132,8 @@ class PasswordView: UIView {
         passwordView.textField.text ?? ""
     }
 
-    func updateErrorLabel(string: String) {
-        secondaryPasswordView.errorLabel.text = string
+    func updateErrorLabel(string: String, label: UILabel) {
+        label.text = string
     }
 }
 
@@ -144,7 +144,10 @@ extension PasswordView: UITextFieldDelegate {
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        passwordView.errorLabel.isHidden = true
+        passwordView.errorLabel.text = ""
         secondaryPasswordView.errorLabel.isHidden = true
+        secondaryPasswordView.errorLabel.text = ""
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

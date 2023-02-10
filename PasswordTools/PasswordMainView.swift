@@ -106,7 +106,6 @@ class PasswordMainView: UIView {
     private func setupErrorLabel() {
         errorLabel.textColor = .systemRed
         errorLabel.font = .preferredFont(forTextStyle: .footnote)
-        errorLabel.text = "Enter your new password"
         errorLabel.isHidden = true
 
         NSLayoutConstraint.activate([
