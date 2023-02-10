@@ -77,6 +77,12 @@ class PasswordViewController: UIViewController {
 }
 
 extension PasswordViewController: PasswordViewProtocol {
+    func success() {
+        let successViewController = SuccessModalViewController()
+        successViewController.modalPresentationStyle = .overCurrentContext
+        self.present(successViewController, animated: true, completion: nil)
+    }
+
     func shouldReturn() -> Bool {
         if passwordView.passwordView.textField.isFirstResponder {
             if passwordView.criteriaView.checkAllCriteriaState() {

@@ -11,6 +11,7 @@ protocol PasswordViewProtocol {
     func editingChanged()
     func editingEnded()
     func shouldReturn() -> Bool
+    func success()
 }
 
 class PasswordView: UIView {
@@ -111,7 +112,7 @@ class PasswordView: UIView {
     private func confirmReenteredPassword() {
         if criteriaView.checkAllCriteriaState() {
             if  passwordView.textField.text == secondaryPasswordView.textField.text {
-                print("senhas iguais")
+                delegate?.success()
             } else {
                 secondaryPasswordView.errorLabel.isHidden = false
                 updateErrorLabel(string: "Reentered password didn't match")
