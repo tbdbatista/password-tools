@@ -81,9 +81,16 @@ class PasswordView: UIView {
     private func setupActions() {
         resetButton.addTarget(self, action: #selector(didTapConfirmPassword), for: .touchUpInside)
         passwordView.textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        self.addGestureRecognizer(tap)
     }
 
     // MARK: - Actions
+    @objc
+    private func dismissKeyboard() {
+        self.endEditing(true)
+    }
+
     @objc
     private func didTapConfirmPassword() {
         confirmReenteredPassword()
