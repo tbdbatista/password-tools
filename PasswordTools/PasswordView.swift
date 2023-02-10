@@ -10,6 +10,7 @@ import UIKit
 protocol PasswordViewProtocol {
     func editingChanged()
     func editingEnded()
+    func shouldReturn() -> Bool
 }
 
 class PasswordView: UIView {
@@ -101,7 +102,7 @@ class PasswordView: UIView {
     }
 
     private func confirmReenteredPassword() {
-        if /*criteriaMatch*/ true {
+        if criteriaView.checkAllCriteriaState() {
             if  passwordView.textField.text == secondaryPasswordView.textField.text {
                 print("senhas iguais")
             } else {
@@ -112,6 +113,11 @@ class PasswordView: UIView {
             secondaryPasswordView.errorLabel.isHidden = false
             updateErrorLabel(string: "Password didn't match all criteria")
         }
+    }
+
+    func didTapReturn() {
+        confirmReenteredPassword()
+        textFieldResignFirstResponder()
     }
 
     func getPassword() -> String {
@@ -131,5 +137,9 @@ extension PasswordView: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         secondaryPasswordView.errorLabel.isHidden = true
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return delegate?.shouldReturn() ?? false
     }
 }

@@ -56,10 +56,8 @@ class PasswordViewController: UIViewController {
         checkDigitCriteria()
         checkSpecialCharCriteria()
     }
-}
 
-extension PasswordViewController: PasswordViewProtocol {
-    func editingEnded() {
+    private func checkCriteriaWhenEditingEnded() {
         if !viewModel.lengthCriteriaMet(password: passwordView.getPassword()) {
             (passwordView.criteriaView.lengthCriteriaView.metCriteria = false)
         }
@@ -75,6 +73,26 @@ extension PasswordViewController: PasswordViewProtocol {
         if !viewModel.specialCharacter(password: passwordView.getPassword()) {
             (passwordView.criteriaView.specialCharacterCriteriaView.metCriteria = false)
         }
+    }
+}
+
+extension PasswordViewController: PasswordViewProtocol {
+    func shouldReturn() -> Bool {
+        if passwordView.passwordView.textField.isFirstResponder {
+            if passwordView.criteriaView.checkAllCriteriaState() {
+                passwordView.secondaryPasswordView.textField.becomeFirstResponder()
+            } else {
+                checkCriteriaWhenEditingEnded()
+                return false
+            }
+        } else {
+            passwordView.didTapReturn()
+        }
+        return true
+    }
+
+    func editingEnded() {
+        checkCriteriaWhenEditingEnded()
     }
 
     func editingChanged() {

@@ -68,6 +68,7 @@
 				DFCDCF3C2965FE0B0044E127 /* PasswordMainView.swift */,
 				DF611007297B3E40008FEA12 /* CriteriaView.swift */,
 				DF5669EA297C9BFA004EF5DC /* SingleCriteriaView.swift */,
+				DF0268D0299401C80083F6CD /* PasswordViewModel.swift */,
 			);
 			path = PasswordTools;
 			sourceTree = "<group>";
@@ -79,7 +80,6 @@
 				DFCDCF192965F1530044E127 /* Info.plist */,
 				DFCDCF162965F1530044E127 /* LaunchScreen.storyboard */,
 				DFCDCF142965F1530044E127 /* Assets.xcassets */,
-				DF0268D0299401C80083F6CD /* PasswordViewModel.swift */,
 			);
 			name = MainFiles;
 			sourceTree = "<group>";

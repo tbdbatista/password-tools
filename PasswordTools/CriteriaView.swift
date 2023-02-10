@@ -86,4 +86,22 @@ class CriteriaView: UIView {
         )
 
         return attributedText
-    }}
+    }
+
+    private func getCriteriaList() -> [SingleCriteriaView] {
+        var criteriaList: [SingleCriteriaView] = []
+        self.stackView.subviews.forEach { subView in
+            if let criteriaView = subView as? SingleCriteriaView {
+                criteriaList.append(criteriaView)
+            }
+        }
+        return criteriaList
+    }
+
+    func checkAllCriteriaState() -> Bool {
+        for singleCriteriaView in getCriteriaList() where !singleCriteriaView.metCriteria {
+            return false
+        }
+        return true
+    }
+}
