@@ -126,7 +126,14 @@ class PasswordView: UIView {
               let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
 
         if currentTextField == secondaryPasswordView.textField {
-            self.frame.origin.y -= 50
+
+            let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+            let convertedTextFieldFrame = self.convert(currentTextField.frame, from: currentTextField.superview)
+            let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
+
+            if (keyboardTopY) < textFieldBottomY {
+                self.frame.origin.y -= (textFieldBottomY - keyboardTopY + 32)
+            }
         }
     }
 
