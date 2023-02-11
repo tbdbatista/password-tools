@@ -16,6 +16,15 @@ class PasswordMainView: UIView {
     lazy var errorLabel = UILabel()
     var placeHolderText: String
 
+    var textFieldText: String? {
+        get {
+            textField.text
+        }
+        set {
+            textField.text = newValue
+        }
+    }
+
     init(placeHolderText: String) {
         self.placeHolderText = placeHolderText
         super.init(frame: .zero)
@@ -40,7 +49,7 @@ class PasswordMainView: UIView {
         self.setupErrorLabel()
     }
 
-    func setupSelfView() {
+    private func setupSelfView() {
         self.addSubview(lockImageView)
         self.addSubview(textField)
         self.addSubview(eyeButton)
@@ -52,7 +61,7 @@ class PasswordMainView: UIView {
         }
     }
 
-    func setupLockImageView() {
+    private func setupLockImageView() {
         NSLayoutConstraint.activate([
             lockImageView.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
             lockImageView.leadingAnchor.constraint(equalTo: leadingAnchor)
@@ -60,7 +69,7 @@ class PasswordMainView: UIView {
         lockImageView.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
     }
 
-    func setupMainTextField() {
+    private func setupMainTextField() {
         textField.isSecureTextEntry = true
         textField.placeholder = placeHolderText
         textField.keyboardType = .asciiCapable
@@ -76,7 +85,7 @@ class PasswordMainView: UIView {
         textField.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
     }
 
-    func setupEyeButton() {
+    private func setupEyeButton() {
         let eyeFilled = UIImage(systemName: "eye.fill")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
         let eyeSlashFill = UIImage(systemName: "eye.slash.fill")?
             .withTintColor(.systemBlue, renderingMode: .alwaysOriginal)

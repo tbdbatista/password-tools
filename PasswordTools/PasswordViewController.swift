@@ -105,7 +105,7 @@ extension PasswordViewController: PasswordViewProtocol {
         checkAllCriteria()
         if !viewModel.checkValidSpecialCharacter(password: passwordView.getPassword()) {
             passwordView.updateErrorLabel(
-                string: "Please, for special character use space or one of the following: .,@:?!()$\\/#^~*&-+<>{}[]",
+                string: "For special character, use 'space' or one of the following: .,@:?!()$\\/#^~*&-+<>{}[]",
                 label: passwordView.passwordView.errorLabel
             )
             passwordView.passwordView.errorLabel.isHidden = false

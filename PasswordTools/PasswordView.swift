@@ -111,7 +111,7 @@ class PasswordView: UIView {
 
     private func confirmReenteredPassword() {
         if criteriaView.checkAllCriteriaState() {
-            if  passwordView.textField.text == secondaryPasswordView.textField.text {
+            if  passwordView.textFieldText == secondaryPasswordView.textFieldText {
                 delegate?.success()
             } else {
                 secondaryPasswordView.errorLabel.isHidden = false
@@ -129,7 +129,7 @@ class PasswordView: UIView {
     }
 
     func getPassword() -> String {
-        passwordView.textField.text ?? ""
+        passwordView.textFieldText ?? ""
     }
 
     func updateErrorLabel(string: String, label: UILabel) {
