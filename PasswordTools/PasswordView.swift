@@ -51,6 +51,7 @@ class PasswordView: UIView {
         setupCriteriaView()
         setupResetButton()
         setupActions()
+        setupNotificationCenter()
         passwordView.textField.delegate = self
         secondaryPasswordView.textField.delegate = self
     }
@@ -78,12 +79,27 @@ class PasswordView: UIView {
         resetButton.configuration = .filled()
     }
 
-    // MARK: - Setup Actions
+    // MARK: - Setup Actions and Notification Center
     private func setupActions() {
         resetButton.addTarget(self, action: #selector(didTapConfirmPassword), for: .touchUpInside)
         passwordView.textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.addGestureRecognizer(tap)
+    }
+
+    private func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(keyboardWillHide),
+//            name: UIResponder.keyboardWillHideNotification,
+//            object: nil
+//        )
     }
 
     // MARK: - Actions
@@ -101,6 +117,17 @@ class PasswordView: UIView {
     @objc
     private func textFieldEditingChanged() {
         delegate?.editingChanged()
+    }
+
+    @objc
+    private func keyboardWillShow(sender: NSNotification) {
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
+
+        if currentTextField == secondaryPasswordView.textField {
+            self.frame.origin.y -= 50
+        }
     }
 
     // MARK: - Methods

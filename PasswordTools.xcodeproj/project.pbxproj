@@ -12,6 +12,7 @@
 		DF5669EB297C9BFA004EF5DC /* SingleCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5669EA297C9BFA004EF5DC /* SingleCriteriaView.swift */; };
 		DF611008297B3E40008FEA12 /* CriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF611007297B3E40008FEA12 /* CriteriaView.swift */; };
 		DFAAB48D29967A920049D12C /* SuccessModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAB48C29967A920049D12C /* SuccessModalViewController.swift */; };
+		DFAAB48F2997D8000049D12C /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAB48E2997D8000049D12C /* UIResponderExtension.swift */; };
 		DFCDCF0C2965F1510044E127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCDCF0B2965F1510044E127 /* AppDelegate.swift */; };
 		DFCDCF102965F1510044E127 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCDCF0F2965F1510044E127 /* PasswordViewController.swift */; };
 		DFCDCF152965F1530044E127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFCDCF142965F1530044E127 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		DF5669EA297C9BFA004EF5DC /* SingleCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCriteriaView.swift; sourceTree = "<group>"; };
 		DF611007297B3E40008FEA12 /* CriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteriaView.swift; sourceTree = "<group>"; };
 		DFAAB48C29967A920049D12C /* SuccessModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModalViewController.swift; sourceTree = "<group>"; };
+		DFAAB48E2997D8000049D12C /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		DFCDCF082965F1510044E127 /* PasswordTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCDCF0B2965F1510044E127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFCDCF0F2965F1510044E127 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				DF5669EA297C9BFA004EF5DC /* SingleCriteriaView.swift */,
 				DF0268D0299401C80083F6CD /* PasswordViewModel.swift */,
 				DFAAB48C29967A920049D12C /* SuccessModalViewController.swift */,
+				DFAAB48E2997D8000049D12C /* UIResponderExtension.swift */,
 			);
 			path = PasswordTools;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				DFCDCF0C2965F1510044E127 /* AppDelegate.swift in Sources */,
 				DF5669EB297C9BFA004EF5DC /* SingleCriteriaView.swift in Sources */,
 				DFCDCF3D2965FE0B0044E127 /* PasswordMainView.swift in Sources */,
+				DFAAB48F2997D8000049D12C /* UIResponderExtension.swift in Sources */,
 				DF611008297B3E40008FEA12 /* CriteriaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
