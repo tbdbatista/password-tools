@@ -94,12 +94,12 @@ class PasswordView: UIView {
             name: UIResponder.keyboardWillShowNotification,
             object: nil
         )
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(keyboardWillHide),
-//            name: UIResponder.keyboardWillHideNotification,
-//            object: nil
-//        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
 
     // MARK: - Actions
@@ -121,6 +121,11 @@ class PasswordView: UIView {
 
     @objc
     private func keyboardWillShow(sender: NSNotification) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.frame.origin.y = 0
+            self.layoutIfNeeded()
+        })
+
         guard let userInfo = sender.userInfo,
               let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
               let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
@@ -132,10 +137,21 @@ class PasswordView: UIView {
             let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
 
             if (keyboardTopY) < textFieldBottomY {
-                self.frame.origin.y -= (textFieldBottomY - keyboardTopY + 32)
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.frame.origin.y -= (textFieldBottomY - keyboardTopY + 32)
+                    self.layoutIfNeeded()
+                })
             }
         }
     }
+
+    @objc
+    private func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.frame.origin.y = 0
+            self.layoutIfNeeded()
+        })
+        }
 
     // MARK: - Methods
     private func textFieldResignFirstResponder() {
