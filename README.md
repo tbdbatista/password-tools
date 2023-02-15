@@ -1,2 +1,7 @@
 # password-tools
-Module of a password tools to be used in other apps
+Module of password utils.
+
+Contains several features that can be apllied in other projects.
+## regex
+## customized textField
+## textField delegate handling
