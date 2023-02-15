@@ -22,6 +22,8 @@ class PasswordViewModelTests: XCTestCase {
         try super.tearDownWithError()
     }
 
+    // MARK: - PasswordLengthTests
+
     func testPasswordLength_WhenInvalidPasswordLengthShorterProvided_ShouldReturnFalse() {
         // Given password with less than 8 characters long
         let passwordWithInvalidLength = "1234567"
@@ -65,4 +67,51 @@ class PasswordViewModelTests: XCTestCase {
             "Test should be true for strings containing between 8 and 32 characters including."
         )
     }
+
+    // MARK: - PasswordCaseTests
+
+    func testPasswordCase_WhenInvalidPasswordWithNoUppercaseProvided_ShouldReturnFalse() {
+        // Given password with only lowercase chars
+        let passwordWithOnlyLowercaseChars = "password"
+
+        // Then
+        XCTAssertFalse(
+            viewModel.uppercaseCriteriaMet(password: passwordWithOnlyLowercaseChars),
+            "Test should be false for strings containing only lowercase characters."
+        )
+    }
+
+    func testPasswordCase_WhenValidPasswordWithAtLeastOneUppercaseProvided_ShoulReturnTrue() {
+        // Given password with at least one uppercase char
+        let passwordWithUpperCase = "Password"
+
+        // Then
+        XCTAssertTrue(
+            viewModel.uppercaseCriteriaMet(password: passwordWithUpperCase),
+            "Test should be true for strings containing at least one uppercase character."
+        )
+    }
+
+    func testPasswordCase_WhenInvalidPasswordWithNoLowercaseProvided_ShouldReturnFalse() {
+        // Given password with only uppercased chars
+        let passwordWithOnlyUppercaseChars = "PASSWORD"
+
+        // Then
+        XCTAssertFalse(
+            viewModel.lowercaseCriteriaMet(password: passwordWithOnlyUppercaseChars),
+            "Test should be false for strings containing only uppercase characters."
+        )
+    }
+
+    func testPasswordCase_WhenValidPasswordWithAtLeastOneLowercaseProvided_ShoulReturnTrue() {
+        // Given password with at least one Lowercase char
+        let passwordWithLowercaseCase = "Password"
+
+        // Then
+        XCTAssertTrue(
+            viewModel.lowercaseCriteriaMet(password: passwordWithLowercaseCase),
+            "Test should be true for strings containing at least one Lowercase character."
+        )
+    }
+
 }
