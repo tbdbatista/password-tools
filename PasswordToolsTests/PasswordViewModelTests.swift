@@ -22,7 +22,7 @@ class PasswordViewModelTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func testPasswordLength_WhenInvalidPasswordLengthProvided_ShouldReturnFalse() {
+    func testPasswordLength_WhenInvalidPasswordLengthShorterProvided_ShouldReturnFalse() {
         // Given password with less than 8 characters long
         let passwordWithInvalidLength = "1234567"
 
@@ -30,6 +30,17 @@ class PasswordViewModelTests: XCTestCase {
         XCTAssertFalse(
             viewModel.lengthCriteriaMet(password: passwordWithInvalidLength),
             "Test should be false for strings with 7 or fewer characters."
+        )
+    }
+
+    func testPasswordLength_WhenInvalidPasswordLengthBiggerProvided_ShouldReturnFalse() {
+        // Given password with more than 32 characters long
+        let passwordWithInvalidLength = "123456789012345678901234567890123"
+
+        // Then
+        XCTAssertFalse(
+            viewModel.lengthCriteriaMet(password: passwordWithInvalidLength),
+            "Test should be false for strings with 33 or more characters."
         )
     }
 
