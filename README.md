@@ -2,6 +2,6 @@
 ### Module of password utils.
 
 Contains several features that can be apllied in other projects.
-#### regex
-#### customized textField
-#### textField delegate handling
+#### 1. regex
+#### 2. customized textField
+#### 3. textField delegate handling
