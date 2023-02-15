@@ -18,7 +18,18 @@
 		DFCDCF152965F1530044E127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFCDCF142965F1530044E127 /* Assets.xcassets */; };
 		DFCDCF182965F1530044E127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFCDCF162965F1530044E127 /* LaunchScreen.storyboard */; };
 		DFCDCF3D2965FE0B0044E127 /* PasswordMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCDCF3C2965FE0B0044E127 /* PasswordMainView.swift */; };
+		DFFFBB0F299D550C00608628 /* PasswordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFBB0E299D550C00608628 /* PasswordViewModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DFFFBB09299D544100608628 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFCDCF002965F1510044E127 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFCDCF072965F1510044E127;
+			remoteInfo = PasswordTools;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DF0268D0299401C80083F6CD /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
@@ -34,10 +45,19 @@
 		DFCDCF172965F1530044E127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DFCDCF192965F1530044E127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFCDCF3C2965FE0B0044E127 /* PasswordMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordMainView.swift; sourceTree = "<group>"; };
+		DFFFBB05299D544100608628 /* PasswordToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PasswordToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFFFBB0E299D550C00608628 /* PasswordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DFCDCF052965F1510044E127 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFFFBB02299D544100608628 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				DFCDCF0A2965F1510044E127 /* PasswordTools */,
+				DFFFBB06299D544100608628 /* PasswordToolsTests */,
 				DFCDCF092965F1510044E127 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				DFCDCF082965F1510044E127 /* PasswordTools.app */,
+				DFFFBB05299D544100608628 /* PasswordToolsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +112,14 @@
 			name = MainFiles;
 			sourceTree = "<group>";
 		};
+		DFFFBB06299D544100608628 /* PasswordToolsTests */ = {
+			isa = PBXGroup;
+			children = (
+				DFFFBB0E299D550C00608628 /* PasswordViewModelTests.swift */,
+			);
+			path = PasswordToolsTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,6 +141,24 @@
 			productReference = DFCDCF082965F1510044E127 /* PasswordTools.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DFFFBB04299D544100608628 /* PasswordToolsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFFFBB0D299D544100608628 /* Build configuration list for PBXNativeTarget "PasswordToolsTests" */;
+			buildPhases = (
+				DFFFBB01299D544100608628 /* Sources */,
+				DFFFBB02299D544100608628 /* Frameworks */,
+				DFFFBB03299D544100608628 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFFFBB0A299D544100608628 /* PBXTargetDependency */,
+			);
+			name = PasswordToolsTests;
+			productName = PasswordToolsTests;
+			productReference = DFFFBB05299D544100608628 /* PasswordToolsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -123,6 +171,11 @@
 				TargetAttributes = {
 					DFCDCF072965F1510044E127 = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					DFFFBB04299D544100608628 = {
+						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
+						TestTargetID = DFCDCF072965F1510044E127;
 					};
 				};
 			};
@@ -140,6 +193,7 @@
 			projectRoot = "";
 			targets = (
 				DFCDCF072965F1510044E127 /* PasswordTools */,
+				DFFFBB04299D544100608628 /* PasswordToolsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -151,6 +205,13 @@
 			files = (
 				DFCDCF182965F1530044E127 /* LaunchScreen.storyboard in Resources */,
 				DFCDCF152965F1530044E127 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFFFBB03299D544100608628 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +255,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DFFFBB01299D544100608628 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFFFBB0F299D550C00608628 /* PasswordViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFFFBB0A299D544100608628 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFCDCF072965F1510044E127 /* PasswordTools */;
+			targetProxy = DFFFBB09299D544100608628 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DFCDCF162965F1530044E127 /* LaunchScreen.storyboard */ = {
@@ -378,6 +455,55 @@
 			};
 			name = Release;
 		};
+		DFFFBB0B299D544100608628 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X3ATBHFANP;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gft.PasswordToolsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PasswordTools.app/PasswordTools";
+			};
+			name = Debug;
+		};
+		DFFFBB0C299D544100608628 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X3ATBHFANP;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gft.PasswordToolsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PasswordTools.app/PasswordTools";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -395,6 +521,15 @@
 			buildConfigurations = (
 				DFCDCF332965F1540044E127 /* Debug */,
 				DFCDCF342965F1540044E127 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFFFBB0D299D544100608628 /* Build configuration list for PBXNativeTarget "PasswordToolsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFFFBB0B299D544100608628 /* Debug */,
+				DFFFBB0C299D544100608628 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
