@@ -19,6 +19,8 @@
 		DFCDCF182965F1530044E127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFCDCF162965F1530044E127 /* LaunchScreen.storyboard */; };
 		DFCDCF3D2965FE0B0044E127 /* PasswordMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCDCF3C2965FE0B0044E127 /* PasswordMainView.swift */; };
 		DFFFBB0F299D550C00608628 /* PasswordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFBB0E299D550C00608628 /* PasswordViewModelTests.swift */; };
+		DFFFBB11299D6A8300608628 /* PasswordViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFBB10299D6A8300608628 /* PasswordViewControllerTests.swift */; };
+		DFFFBB13299D754800608628 /* PasswordViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFBB12299D754800608628 /* PasswordViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		DFCDCF3C2965FE0B0044E127 /* PasswordMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordMainView.swift; sourceTree = "<group>"; };
 		DFFFBB05299D544100608628 /* PasswordToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PasswordToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFFFBB0E299D550C00608628 /* PasswordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModelTests.swift; sourceTree = "<group>"; };
+		DFFFBB10299D6A8300608628 /* PasswordViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewControllerTests.swift; sourceTree = "<group>"; };
+		DFFFBB12299D754800608628 /* PasswordViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				DFFFBB0E299D550C00608628 /* PasswordViewModelTests.swift */,
+				DFFFBB10299D6A8300608628 /* PasswordViewControllerTests.swift */,
+				DFFFBB12299D754800608628 /* PasswordViewTests.swift */,
 			);
 			path = PasswordToolsTests;
 			sourceTree = "<group>";
@@ -260,6 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFFFBB0F299D550C00608628 /* PasswordViewModelTests.swift in Sources */,
+				DFFFBB11299D6A8300608628 /* PasswordViewControllerTests.swift in Sources */,
+				DFFFBB13299D754800608628 /* PasswordViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

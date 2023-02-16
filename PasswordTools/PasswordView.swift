@@ -136,7 +136,7 @@ class PasswordView: UIView {
             let convertedTextFieldFrame = self.convert(currentTextField.frame, from: currentTextField.superview)
             let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
 
-            if (keyboardTopY) < textFieldBottomY {
+            if (keyboardTopY) < textFieldBottomY + 16 {
                 UIView.animate(withDuration: 0.2, animations: {
                     self.frame.origin.y -= (textFieldBottomY - keyboardTopY + 32)
                     self.layoutIfNeeded()
