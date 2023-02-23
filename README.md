@@ -1,7 +1,7 @@
 # password-tools
 ### Module of password utils.
 
-### I am using this module also to improve Unit Test skill, using XCTest :fire: :fire:
+#### I am also using this module to improve Unit Test skill, using XCTest :fire: :fire:
 
 ### Contains several features that can be apllied in other projects:
 #### 1. Regex
